@@ -22,21 +22,42 @@ application(
 	xmlns:ins="http://www.mezzonomy.com/insiders"
 	xmlns:dis="http://www.mezzonomy.com/distant">
 	<isl:locale isl:lang="fr"/>
-	<isl:help isl:help-activated="0" isl:help-path="Checkbox">	
-		<__Template en:__Template="Component 'Checkbox'" fr:__Template="Composant 'Checkbox'">
+	<isl:help isl:help-activated="0" isl:help-path="TreeWidget">	
+		<TreeWidget en:__Template="Tree view" fr:__Template="Arbre de navigation">
 			<html:body lang="en" title="__Template">
-				<html:h1>__Template unitary test</html:h1>
-				<html:P>The <int:__Template/> widget ...
+				<html:h1>TreeWidget unitary test</html:h1>
+				<html:P>The <int:TreeWidget/> widget allows to 
+				create tree navigation widget, helpful for preferences
+				or help.
 				</html:P>
 				<isl:xmlns/>
 			</html:body>
-		</Checkbox>
+		</TreeWidget>
 	</isl:help>
 	<xsl:stylesheet version="1.0">
-		<xsl:import href="unitary/unitary.xsl"/>
+		<xsl:import href="cargo/unitary.xsl"/>
 	</xsl:stylesheet>
 	<isl:menus dis:href="cargo/Menus.xml"/>
 	<int:Interface>
-		<!-- Copy-paste old unitary test -->
+		<int:TreeWidget 
+			lyt:position="central"
+			columns         = "3" 
+			headers         = "Init Value|min|max"
+			>
+			<int:TreeWidgetItem state="expanded" text="50">
+				<int:TreeWidgetItem state="expanded" text="50">
+					<int:TreeWidgetItem	icon="isl.ico" text="50">
+					</int:TreeWidgetItem>
+				</int:TreeWidgetItem>
+				<int:TreeWidgetItem state="closed" text="50">
+				</int:TreeWidgetItem>
+			</int:TreeWidgetItem>
+			<int:TreeWidgetItem state="closed" text="50">
+				<int:TreeWidgetItem text="50">
+				</int:TreeWidgetItem>
+				</int:TreeWidgetItem>
+				<int:TreeWidgetItem text="50">
+			</int:TreeWidgetItem>
+		</int:TreeWidget>
 	</int:Interface>
 </isl:application>

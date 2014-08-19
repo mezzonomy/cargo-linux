@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!-- 
+import basic
+widgets(basic)
 application( 
 	name        = """unitary""",
 	version     = """1.2""", 
@@ -30,7 +32,7 @@ application(
 		</html:body>
 	</isl:help>
 	<xsl:stylesheet version="1.0">
-		<xsl:import href="cargo/unitary.xsl"/>
+		<xsl:import href="unitary/unitary.xsl"/>
 	</xsl:stylesheet>
 	<int:Interface>
 		<int:Boxed lyt:position="central">

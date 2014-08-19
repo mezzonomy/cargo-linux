@@ -35,7 +35,7 @@ application(
 		</TreeWidget>
 	</isl:help>
 	<xsl:stylesheet version="1.0">
-		<xsl:import href="cargo/unitary.xsl"/>
+		<xsl:import href="unitary/unitary.xsl"/>
 	</xsl:stylesheet>
 	<isl:menus dis:href="cargo/Menus.xml"/>
 	<int:Interface>
