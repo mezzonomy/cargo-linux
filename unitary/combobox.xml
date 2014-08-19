@@ -36,7 +36,7 @@ application(
 		</ComboBox>
 	</isl:help>
 	<xsl:stylesheet ins:xmlns="used" lyt:xmlns="used" version="1.0">
-		<xsl:import href="cargo/unitary.xsl"/>
+		<xsl:import href="unitary/unitary.xsl"/>
 		<xsl:template match="int:ComboBox" mode="unitary">
 			<int:ComboBox>
 				<xsl:variable name="style" select="@style"/>
