@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- 
+import basic
+widgets(basic)
+application( 
+	name        = """integration""",
+	version     = """1.2""", 
+	author      = """Pierre Gradit""",
+	description = """Basic library integration test""",
+	XYsplash    = (150,20),
+	)
+-->
+<isl:application
+	xmlns:dss="http://en.wikipedia.org/wiki/Odyssey"
+	xmlns:isl="http://www.mezzonomy.com/interface-stylesheet-language"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:en="http://www.mezzonomy.com/language/english"
+	xmlns:fr="http://www.mezzonomy.com/language/french"
+	xmlns:lyt="http://www.mezzonomy.com/layout"
+	xmlns:int="http://www.mezzonomy.com/interface"
+	xmlns:on="http://www.mezzonomy.com/events"
+	xmlns:ins="http://www.mezzonomy.com/insiders"
+	xmlns:dis="http://www.mezzonomy.com/distant"
+	>
+	<isl:locale isl:lang="fr"/>
+	<isl:menus dis:href="cargo/Menus.xml"/>
+	<isl:help isl:help-activated="0" isl:help-path="Odyssey">
+		<Odyssey>
+			<html:body lang="en">
+				<html:h1>
+					Odyssey integration test
+				</html:h1>
+				<html:P align="justify">
+					This test provides minimalist model and display
+					using the language tools. 
+				</html:P>
+				<html:P align="justify">
+					The intention is to provide a simple game based
+					on the knowledge of who is alive at the end of the 
+					Odyssey. 
+				</html:P>
+				<html:h2>Session structure</html:h2>
+				<html:P  align="justify">
+					The session xml file is structured in five parts: 
+				</html:P>
+				<isl:expand select="/*" depth="2"/>
+				<html:P align="justify">
+					<isl:locale/> and <isl:menus/> are not yet of 
+					your concern. <isl:help/> is the text you read now. 
+					<dss:alive/> is the model, which is composed of the
+					set of characters and the needed translations. Each
+					character is identified by @isl:key, the current 
+					value being stored in @isl:val and the correct 
+					answer in @dss/alive.
+				</html:P>
+				<isl:expand select="/*/dss:alive"/>
+				<html:h2>Stylesheet structure</html:h2>
+				<html:P align="justify">
+					The stylesheet is composed of three parts.
+				</html:P>
+				<isl:expand select="/*/xsl:stylesheet" depth="2"/>
+				<html:P align="justify">
+					The <xsl:import/> clause links the stylesheet with
+					libray resources managing help, menus and languages.
+					The first template manages the general layout, The 
+					question has to be set at the top of the window, 
+					followed by a sequence of checkboxes for each main 
+					hero, and then the validity of the current
+					combinaison:
+				</html:P>
+				<isl:expand 
+					select="/*/xsl:stylesheet/xsl:template[1]" 
+					depth="4"/>
+				<html:P align="justify">
+					The second template manages the mean behavior of
+					the <int:Checkbox/> associated to each character:
+				</html:P>
+				<isl:expand 
+					select="/*/xsl:stylesheet/xsl:template[2]" 
+					depth="3"/>
+				<html:P align="justify">
+					The <int:Checkbox/> widget is an option button that 
+					can be switched <html:I>on</html:I> (@status="1") or 
+					<html:I>off</html:I> (@status="0") and therefore 
+					accepts <on:statusChanged/> events, and the new 
+					value of status is <html:b>set</html:b> to the
+					corresponding hero.
+				</html:P>
+				<html:h2>Language management</html:h2>
+				<html:P align="justify">
+					The remaining part of the actual session concerns
+					language management from the stylesheet point of 
+					view. You may translate either an attribute value
+					(e.g. <dss:alive/>) or a tag name (e.g. 
+					<html:i>@isl:key</html:i>).
+				</html:P>
+				<isl:xmlns/>
+			</html:body>
+		</Odyssey>
+		<General dis:href="doc/general.xml"/>
+	</isl:help>
+	<xsl:stylesheet dss:xmlns="used" isl:xmlns="used" version="1.0">
+		<xsl:import href="cargo/basic.xsl"/>
+		<xsl:template match="dss:alive">
+			<lyt:Vertical lyt:position='central'>
+				<int:Label>
+					<xsl:attribute name="text">
+						<xsl:apply-templates select="." mode="language"/>
+					</xsl:attribute>
+				</int:Label>
+				<xsl:apply-templates select="dss:character"/>
+				<int:Label>
+					<xsl:attribute name="text">
+						<xsl:choose>
+							<xsl:when test="dss:character[ not(@isl:val=@dss:alive)]">
+								<xsl:apply-templates select="ko" mode="language"/>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:apply-templates select="ok" mode="language"/>
+							</xsl:otherwise>
+						</xsl:choose>
+					</xsl:attribute>
+				</int:Label>
+			</lyt:Vertical>
+		</xsl:template>
+		<xsl:template match="dss:character">
+			<int:Checkbox status="{@isl:val}">
+				<xsl:attribute name="title">
+					<xsl:apply-templates select="@isl:key" mode="language"/>
+				</xsl:attribute>
+				<on:stateChanged set="{@isl:key}"/>
+			</int:Checkbox>
+		</xsl:template>
+	</xsl:stylesheet>
+	<dss:alive
+		en:alive="Who is alive at the end of the Odyssey?"
+		fr:alive="Qui est vivant à la fin de l'Odyssée ?"
+		>
+		<dss:character isl:key="Achilles"  isl:val="1" dss:alive="0" en:key="Achilles"  fr:key="Achille"/>
+		<dss:character isl:key="Ulysses"   isl:val="1" dss:alive="1" en:key="Ulysses"   fr:key="Ulysse"/>
+		<dss:character isl:key="Menelaus"  isl:val="1" dss:alive="1" en:key="Menelaus"  fr:key="Ménélas"/>
+		<dss:character isl:key="Agamemnon" isl:val="1" dss:alive="0" en:key="Agamemnon" fr:key="Agamemnon"/>
+		<ok en:ok="Good answer!"  fr:ok="Bonne réponse !"/>
+		<ko en:ko="Wrong answer!" fr:ko="Mauvaise réponse !"/>
+	</dss:alive>
+</isl:application>

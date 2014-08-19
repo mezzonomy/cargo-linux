@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- 
+import basic
+widgets(basic)
+application( 
+	name        = """unitary""",
+	version     = """1.2""", 
+	author      = """Pierre Gradit""" + __mezzonomy__,
+	description = """Basic library unitary test""",
+	XYsplash    = (150,20),
+	)
+-->
+<isl:application
+	xmlns:isl="http://www.mezzonomy.com/interface-stylesheet-language"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:en="http://www.mezzonomy.com/language/english"
+	xmlns:fr="http://www.mezzonomy.com/language/french"
+	xmlns:lyt="http://www.mezzonomy.com/layout"
+	xmlns:int="http://www.mezzonomy.com/interface"
+	xmlns:on="http://www.mezzonomy.com/events"
+	xmlns:ins="http://www.mezzonomy.com/insiders"
+	xmlns:dis="http://www.mezzonomy.com/distant">
+	<isl:locale isl:lang="fr"/>
+	<isl:help isl:help-activated="0" isl:help-path="Checkbox">	
+		<__Template en:__Template="Component 'Checkbox'" fr:__Template="Composant 'Checkbox'">
+			<html:body lang="en" title="__Template">
+				<html:h1>__Template unitary test</html:h1>
+				<html:P>The <int:__Template/> widget ...
+				</html:P>
+				<isl:xmlns/>
+			</html:body>
+		</Checkbox>
+	</isl:help>
+	<xsl:stylesheet version="1.0">
+		<xsl:import href="cargo/unitary.xsl"/>
+	</xsl:stylesheet>
+	<isl:menus dis:href="cargo/Menus.xml"/>
+	<int:Interface>
+		<!-- Copy-paste old unitary test -->
+	</int:Interface>
+</isl:application>

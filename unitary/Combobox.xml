@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- 
+import basic
+widgets(basic)
+application( 
+	name        = """unitary""",
+	version     = """1.2""", 
+	author      = """Pierre Gradit""" + __mezzonomy__,
+	description = """Basic library unitary test""",
+	XYsplash    = (150,20),
+	)
+-->
+<isl:application
+	xmlns:isl="http://www.mezzonomy.com/interface-stylesheet-language"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:en="http://www.mezzonomy.com/language/english"
+	xmlns:fr="http://www.mezzonomy.com/language/french"
+	xmlns:lyt="http://www.mezzonomy.com/layout"
+	xmlns:int="http://www.mezzonomy.com/interface"
+	xmlns:on="http://www.mezzonomy.com/events"
+	xmlns:ins="http://www.mezzonomy.com/insiders"
+	xmlns:dis="http://www.mezzonomy.com/distant">
+	<isl:locale isl:lang="fr"/>
+	<isl:help isl:help-activated="0" isl:help-path="Checkbox">	
+		<ComboBox en:ComboBox="Component 'ComboBox'" fr:ComboBox="Composant 'Checkbox'">
+			<html:body lang="en" title="ComboBox">
+				<html:h1>ComboBox unitary test</html:h1>
+				<html:P>The <int:ComboBox/> widget is a combined button 
+				and popup list. A <int:ComboBox/> provides a means of 
+				presenting a list of options to the user in a way that 
+				takes up the minimum amount of screen space.
+				</html:P>
+				<isl:xmlns/>
+			</html:body>
+		</ComboBox>
+	</isl:help>
+	<xsl:stylesheet ins:xmlns="used" lyt:xmlns="used" version="1.0">
+		<xsl:import href="cargo/unitary.xsl"/>
+		<xsl:template match="int:ComboBox" mode="unitary">
+			<int:ComboBox>
+				<xsl:variable name="style" select="@style"/>
+				<xsl:copy-of select="@ins:key|@lyt:*"/>
+				<xsl:attribute name="index">
+					<xsl:for-each select="ins:option">
+						<xsl:if test="@ins:key=$style">
+							<xsl:value-of select="position()"/>
+						</xsl:if>
+					</xsl:for-each>
+				</xsl:attribute>
+				<xsl:apply-templates mode="unitary"/>
+			</int:ComboBox>
+		</xsl:template>
+	</xsl:stylesheet>
+	<isl:menus dis:href="cargo/Menus.xml"/>
+	<int:Interface>
+		<int:ComboBox style="font-size:10pt" index="1" lyt:position="central">
+			<ins:option ins:key="font-size:6pt" text="tiny"/>
+			<ins:option ins:key="font-size:10pt" text="small"/>
+			<ins:option ins:key="font-size:12pt" text="normal"/>
+			<ins:option ins:key="font-size:18pt" text="large"/>
+			<ins:option ins:key="font-size:24pt" text="huge"/>
+			<on:activated set="style"/>
+		</int:ComboBox>
+	</int:Interface>
+</isl:application>
