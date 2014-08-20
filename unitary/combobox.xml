@@ -38,6 +38,7 @@ application(
 	<xsl:stylesheet ins:xmlns="used" lyt:xmlns="used" version="1.0">
 		<xsl:import href="unitary/unitary.xsl"/>
 		<xsl:template match="int:ComboBox" mode="unitary">
+			<!-- insures index value to be correct -->
 			<int:ComboBox>
 				<xsl:variable name="style" select="@style"/>
 				<xsl:copy-of select="@ins:key|@lyt:*"/>
@@ -60,6 +61,7 @@ application(
 			<ins:option ins:key="font-size:12pt" text="normal"/>
 			<ins:option ins:key="font-size:18pt" text="large"/>
 			<ins:option ins:key="font-size:24pt" text="huge"/>
+			<!-- set @style to selected @ins:key -->
 			<on:activated set="style"/>
 		</int:ComboBox>
 	</int:Interface>

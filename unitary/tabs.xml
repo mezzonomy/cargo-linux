@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- 
+import basic
+widgets(basic)
+application( 
+	name        = """unitary""",
+	version     = """1.2""", 
+	author      = """Pierre Gradit""" + __mezzonomy__,
+	description = """Basic library unitary test""",
+	XYsplash    = (150,20),
+	)
+-->
+<isl:application
+	xmlns:isl="http://www.mezzonomy.com/interface-stylesheet-language"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:en="http://www.mezzonomy.com/language/english"
+	xmlns:fr="http://www.mezzonomy.com/language/french"
+	xmlns:lyt="http://www.mezzonomy.com/layout"
+	xmlns:int="http://www.mezzonomy.com/interface"
+	xmlns:on="http://www.mezzonomy.com/events"
+	xmlns:ins="http://www.mezzonomy.com/insiders"
+	xmlns:dis="http://www.mezzonomy.com/distant">
+	<isl:locale isl:lang="fr"/>
+	<isl:help isl:help-activated="0" isl:help-path="Checkbox">	
+		<Form en:Form="Widgets" fr:Forme="Composants ">
+			<html:body lang="en">
+				<html:h1>Principal components and events</html:h1>
+				<html:P>This unitary test present the main widgets in
+				a form layout
+				</html:P>
+				<isl:xmlns/>
+			</html:body>
+		</Form>
+	</isl:help>
+	<xsl:stylesheet on:xmlns="used" version="1.0">
+		<xsl:import href="unitary/unitary.xsl"/>
+	</xsl:stylesheet>
+	<isl:menus dis:href="cargo/Menus.xml"/>
+	<int:Interface>
+		<lyt:Tabs lyt:position="central">
+			<int:LineEdit ins:key="LineEdit" lyt:title="LineEdit" text="@text">
+			</int:LineEdit>
+			<int:ComboBox ins:key="ComboBox" lyt:title="ComboBox" index="2" state="disabled">
+				<ins:option ins:key="x" text="ins:option"/>
+				<ins:option ins:key="y" text="ins:option"/>
+				<ins:option ins:key="z" text="ins:option"/>
+			</int:ComboBox>
+			<int:Checkbox ins:key="Checkbox" lyt:title="Checkbox" status="1" title="@title"/>
+			<int:PushButton ins:key="PushButton" lyt:title="PushButton" title="@title"/>
+		</lyt:Tabs>
+	</int:Interface>
+</isl:application>
