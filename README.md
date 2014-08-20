@@ -15,7 +15,7 @@ Integration tests
 -----------------
 
 ./cargo integration/Odyssey
-	- simple example of cargo use
+	- simple example of cargo use (default)
 
 
 Unitary tests
@@ -30,4 +30,8 @@ Unitary tests
 ./cargo unitary/combobox.xml
 
 ./cargo unitary/label.xml
+
+./cargo unitary/form.xml
+
+./cargo unitary/tabs.xml
 

@@ -22,6 +22,7 @@ application(
 	xmlns:on="http://www.mezzonomy.com/events"
 	xmlns:ins="http://www.mezzonomy.com/insiders"
 	xmlns:dis="http://www.mezzonomy.com/distant"
+    xmlns:ext= "http://www.mezzonomy.com/extensions"
 	>
 	<isl:locale isl:lang="fr"/>
 	<isl:menus dis:href="cargo/Menus.xml"/>
@@ -100,35 +101,24 @@ application(
 		</Odyssey>
 		<General dis:href="doc/general.xml"/>
 	</isl:help>
-	<xsl:stylesheet dss:xmlns="used" isl:xmlns="used" version="1.0">
+	<xsl:stylesheet version="1.0">
 		<xsl:import href="cargo/basic.xsl"/>
 		<xsl:template match="dss:alive">
 			<lyt:Vertical lyt:position='central'>
-				<int:Label>
-					<xsl:attribute name="text">
-						<xsl:apply-templates select="." mode="language"/>
-					</xsl:attribute>
-				</int:Label>
+				<int:Label text="{ext:lang(.)}"/>
 				<xsl:apply-templates select="dss:character"/>
-				<int:Label>
-					<xsl:attribute name="text">
-						<xsl:choose>
-							<xsl:when test="dss:character[ not(@isl:val=@dss:alive)]">
-								<xsl:apply-templates select="ko" mode="language"/>
-							</xsl:when>
-							<xsl:otherwise>
-								<xsl:apply-templates select="ok" mode="language"/>
-							</xsl:otherwise>
-						</xsl:choose>
-					</xsl:attribute>
-				</int:Label>
+				<xsl:choose>
+					<xsl:when test="dss:character[ not(@isl:val=@dss:alive)]">
+						<int:Label text="{ext:lang(ko)}"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<int:Label text="{ext:lang(ok)}"/>
+					</xsl:otherwise>
+				</xsl:choose>
 			</lyt:Vertical>
 		</xsl:template>
 		<xsl:template match="dss:character">
-			<int:Checkbox status="{@isl:val}">
-				<xsl:attribute name="title">
-					<xsl:apply-templates select="@isl:key" mode="language"/>
-				</xsl:attribute>
+			<int:Checkbox status="{@isl:val}" title="{ext:lang(.,'isl:key')}">
 				<on:stateChanged set="{@isl:key}"/>
 			</int:Checkbox>
 		</xsl:template>

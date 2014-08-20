@@ -35,7 +35,7 @@ application(
 			</html:body>
 		</ComboBox>
 	</isl:help>
-	<xsl:stylesheet ins:xmlns="used" lyt:xmlns="used" version="1.0">
+	<xsl:stylesheet version="1.0">
 		<xsl:import href="unitary/unitary.xsl"/>
 		<xsl:template match="int:ComboBox" mode="unitary">
 			<!-- insures index value to be correct -->
