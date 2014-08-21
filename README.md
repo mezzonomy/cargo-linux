@@ -21,8 +21,11 @@ To get a full authoring licence, please contact mezzonomy@orange.fr
 Integration tests
 -----------------
 
-./cargo integration/Odyssey
-	- simple example of cargo use (default)
+./cargo integration/cylinder.xml
+	- simple example of unit use (default)
+
+./cargo integration/odyssey.xml
+	- simple example of language use
 
 
 Unitary tests
