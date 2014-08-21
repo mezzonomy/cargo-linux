@@ -14,7 +14,7 @@ application(
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:lyt="http://www.mezzonomy.com/layout"
-	xmlns:int="http://www.mezzonomy.com/interface"
+	xmlns:wdg="http://www.mezzonomy.com/widget"
 	xmlns:on="http://www.mezzonomy.com/events"
 	xmlns:ins="http://www.mezzonomy.com/insiders"
 	xmlns:dis="http://www.mezzonomy.com/distant">
@@ -22,11 +22,11 @@ application(
 	<isl:help>	
 		<html:body lang="en" title="Checkbox">
 			<html:h1>Nested box in LaTeX way</html:h1>
-			<html:P>The <int:Boxed/> widget provides 
+			<html:P>The <wdg:Boxed/> widget provides 
 			an equivalent to the \boxed LaTeX tag.
 			</html:P>
-			<int:Interface/>
-			<html:P>The <int:Boxed/> accepts no events.
+			<wdg:Interface/>
+			<html:P>The <wdg:Boxed/> accepts no events.
 			</html:P>
 			<isl:xmlns/>
 		</html:body>
@@ -34,21 +34,21 @@ application(
 	<xsl:stylesheet version="1.0">
 		<xsl:import href="unitary/unitary.xsl"/>
 	</xsl:stylesheet>
-	<int:Interface>
-		<int:Boxed lyt:position="central">
-			<int:Boxed>
-				<int:Boxed>
-					<int:Label text="1"/>
-					<int:Label text="2"/>
-				</int:Boxed>
-				<int:Label text="3"/>
-			</int:Boxed>
-			<int:Boxed>
-				<int:Boxed>
-					<int:Label text="4"/>
-				</int:Boxed>
-			<int:Label text="5"/>
-			</int:Boxed>
-		</int:Boxed>
-	</int:Interface>
+	<wdg:Interface>
+		<wdg:Boxed lyt:position="central">
+			<wdg:Boxed>
+				<wdg:Boxed>
+					<wdg:Label text="1"/>
+					<wdg:Label text="2"/>
+				</wdg:Boxed>
+				<wdg:Label text="3"/>
+			</wdg:Boxed>
+			<wdg:Boxed>
+				<wdg:Boxed>
+					<wdg:Label text="4"/>
+				</wdg:Boxed>
+			<wdg:Label text="5"/>
+			</wdg:Boxed>
+		</wdg:Boxed>
+	</wdg:Interface>
 </isl:application>

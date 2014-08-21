@@ -17,7 +17,7 @@ application(
 	xmlns:en="http://www.mezzonomy.com/language/english"
 	xmlns:fr="http://www.mezzonomy.com/language/french"
 	xmlns:lyt="http://www.mezzonomy.com/layout"
-	xmlns:int="http://www.mezzonomy.com/interface"
+	xmlns:wdg="http://www.mezzonomy.com/widget"
 	xmlns:on="http://www.mezzonomy.com/events"
 	xmlns:ins="http://www.mezzonomy.com/insiders"
 	xmlns:dis="http://www.mezzonomy.com/distant">
@@ -25,16 +25,16 @@ application(
 		<Label>
 			<html:body lang="en" title="Checkbox">
 				<html:h1>Label unitary test</html:h1>
-				<html:P>The <int:Label/> widget provides 
+				<html:P>The <wdg:Label/> widget provides 
 				a non-editable piece of text. There are
 				two possibilities of use:
 				</html:P>
-				<isl:expand select="/*/int:Interface/*/*[1]"/>
-				<isl:expand select="/*/int:Interface/*/*[2]"/>
-				<html:P>The <int:Label/> widget accepts no events. Note
+				<isl:expand select="/*/wdg:Interface/*/*[1]"/>
+				<isl:expand select="/*/wdg:Interface/*/*[2]"/>
+				<html:P>The <wdg:Label/> widget accepts no events. Note
 				that the effect of CSS mainly concerns labels :
 				</html:P>
-				<isl:expand select="/*/int:Interface/*/*[3]"/>				
+				<isl:expand select="/*/wdg:Interface/*/*[3]"/>				
 				<isl:xmlns/>
 			</html:body>
 		</Label>
@@ -43,16 +43,16 @@ application(
 		<xsl:import href="unitary/unitary.xsl"/>
 	</xsl:stylesheet>
 	<isl:menus dis:href="cargo/Menus.xml"/>
-	<int:Interface>
+	<wdg:Interface>
 		<lyt:Vertical lyt:position = "central">
-			<int:Label text="Use of text attribute: simple text"/>
-			<int:Label>
+			<wdg:Label text="Use of text attribute: simple text"/>
+			<wdg:Label>
 				<html:body> 
 					Use of html body attribute: rich text 
 					(<html:FONT face="Symbol">e</html:FONT><html:SUB>0</html:SUB>).
 				</html:body>
-			</int:Label>
-			<int:Label 
+			</wdg:Label>
+			<wdg:Label 
 				tooltip      = "exemple of tool-tip"
 				style        = "
 					 background-color: yellow;
@@ -67,6 +67,6 @@ application(
 				text         = "Use of CSS style and tooltip"
 				/>
 		</lyt:Vertical>
-	</int:Interface>
+	</wdg:Interface>
 </isl:application>
 

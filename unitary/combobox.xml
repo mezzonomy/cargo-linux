@@ -17,7 +17,7 @@ application(
 	xmlns:en="http://www.mezzonomy.com/language/english"
 	xmlns:fr="http://www.mezzonomy.com/language/french"
 	xmlns:lyt="http://www.mezzonomy.com/layout"
-	xmlns:int="http://www.mezzonomy.com/interface"
+	xmlns:wdg="http://www.mezzonomy.com/widget"
 	xmlns:on="http://www.mezzonomy.com/events"
 	xmlns:ins="http://www.mezzonomy.com/insiders"
 	xmlns:dis="http://www.mezzonomy.com/distant">
@@ -26,8 +26,8 @@ application(
 		<ComboBox en:ComboBox="Component 'ComboBox'" fr:ComboBox="Composant 'Checkbox'">
 			<html:body lang="en" title="ComboBox">
 				<html:h1>ComboBox unitary test</html:h1>
-				<html:P>The <int:ComboBox/> widget is a combined button 
-				and popup list. A <int:ComboBox/> provides a means of 
+				<html:P>The <wdg:ComboBox/> widget is a combined button 
+				and popup list. A <wdg:ComboBox/> provides a means of 
 				presenting a list of options to the user in a way that 
 				takes up the minimum amount of screen space.
 				</html:P>
@@ -37,9 +37,9 @@ application(
 	</isl:help>
 	<xsl:stylesheet version="1.0">
 		<xsl:import href="unitary/unitary.xsl"/>
-		<xsl:template match="int:ComboBox" mode="unitary">
+		<xsl:template match="wdg:ComboBox" mode="unitary">
 			<!-- insures index value to be correct -->
-			<int:ComboBox>
+			<wdg:ComboBox>
 				<xsl:variable name="style" select="@style"/>
 				<xsl:copy-of select="@ins:key|@lyt:*"/>
 				<xsl:attribute name="index">
@@ -50,12 +50,12 @@ application(
 					</xsl:for-each>
 				</xsl:attribute>
 				<xsl:apply-templates mode="unitary"/>
-			</int:ComboBox>
+			</wdg:ComboBox>
 		</xsl:template>
 	</xsl:stylesheet>
 	<isl:menus dis:href="cargo/Menus.xml"/>
-	<int:Interface>
-		<int:ComboBox style="font-size:10pt" index="1" lyt:position="central">
+	<wdg:Interface>
+		<wdg:ComboBox style="font-size:10pt" index="1" lyt:position="central">
 			<ins:option ins:key="font-size:6pt" text="tiny"/>
 			<ins:option ins:key="font-size:10pt" text="small"/>
 			<ins:option ins:key="font-size:12pt" text="normal"/>
@@ -63,6 +63,6 @@ application(
 			<ins:option ins:key="font-size:24pt" text="huge"/>
 			<!-- set @style to selected @ins:key -->
 			<on:activated set="style"/>
-		</int:ComboBox>
-	</int:Interface>
+		</wdg:ComboBox>
+	</wdg:Interface>
 </isl:application>

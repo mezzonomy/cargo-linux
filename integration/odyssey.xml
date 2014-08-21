@@ -18,7 +18,7 @@ application(
 	xmlns:en="http://www.mezzonomy.com/language/english"
 	xmlns:fr="http://www.mezzonomy.com/language/french"
 	xmlns:lyt="http://www.mezzonomy.com/layout"
-	xmlns:int="http://www.mezzonomy.com/interface"
+	xmlns:int="http://www.mezzonomy.com/widget"
 	xmlns:on="http://www.mezzonomy.com/events"
 	xmlns:ins="http://www.mezzonomy.com/insiders"
 	xmlns:dis="http://www.mezzonomy.com/distant"
@@ -75,13 +75,13 @@ application(
 					depth="4"/>
 				<html:P align="justify">
 					The second template manages the mean behavior of
-					the <int:Checkbox/> associated to each character:
+					the <wdg:Checkbox/> associated to each character:
 				</html:P>
 				<isl:expand 
 					select="/*/xsl:stylesheet/xsl:template[2]" 
 					depth="3"/>
 				<html:P align="justify">
-					The <int:Checkbox/> widget is an option button that 
+					The <wdg:Checkbox/> widget is an option button that 
 					can be switched <html:I>on</html:I> (@status="1") or 
 					<html:I>off</html:I> (@status="0") and therefore 
 					accepts <on:statusChanged/> events, and the new 
@@ -105,22 +105,22 @@ application(
 		<xsl:import href="cargo/basic.xsl"/>
 		<xsl:template match="dss:alive">
 			<lyt:Vertical lyt:position='central'>
-				<int:Label text="{ext:lang(.)}"/>
+				<wdg:Label text="{ext:lang(.)}"/>
 				<xsl:apply-templates select="dss:character"/>
 				<xsl:choose>
 					<xsl:when test="dss:character[ not(@isl:val=@dss:alive)]">
-						<int:Label text="{ext:lang(ko)}"/>
+						<wdg:Label text="{ext:lang(ko)}"/>
 					</xsl:when>
 					<xsl:otherwise>
-						<int:Label text="{ext:lang(ok)}"/>
+						<wdg:Label text="{ext:lang(ok)}"/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</lyt:Vertical>
 		</xsl:template>
 		<xsl:template match="dss:character">
-			<int:Checkbox status="{@isl:val}" title="{ext:lang(.,'isl:key')}">
+			<wdg:Checkbox status="{@isl:val}" title="{ext:lang(.,'isl:key')}">
 				<on:stateChanged set="{@isl:key}"/>
-			</int:Checkbox>
+			</wdg:Checkbox>
 		</xsl:template>
 	</xsl:stylesheet>
 	<dss:alive

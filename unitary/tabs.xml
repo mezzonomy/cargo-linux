@@ -17,7 +17,7 @@ application(
 	xmlns:en="http://www.mezzonomy.com/language/english"
 	xmlns:fr="http://www.mezzonomy.com/language/french"
 	xmlns:lyt="http://www.mezzonomy.com/layout"
-	xmlns:int="http://www.mezzonomy.com/interface"
+	xmlns:wdg="http://www.mezzonomy.com/widget"
 	xmlns:on="http://www.mezzonomy.com/events"
 	xmlns:ins="http://www.mezzonomy.com/insiders"
 	xmlns:dis="http://www.mezzonomy.com/distant">
@@ -37,17 +37,17 @@ application(
 		<xsl:import href="unitary/unitary.xsl"/>
 	</xsl:stylesheet>
 	<isl:menus dis:href="cargo/Menus.xml"/>
-	<int:Interface>
+	<wdg:Interface>
 		<lyt:Tabs lyt:position="central">
-			<int:LineEdit ins:key="LineEdit" lyt:title="LineEdit" text="@text">
-			</int:LineEdit>
-			<int:ComboBox ins:key="ComboBox" lyt:title="ComboBox" index="2" state="disabled">
+			<wdg:LineEdit ins:key="LineEdit" lyt:title="LineEdit" text="@text">
+			</wdg:LineEdit>
+			<wdg:ComboBox ins:key="ComboBox" lyt:title="ComboBox" index="2" state="disabled">
 				<ins:option ins:key="x" text="ins:option"/>
 				<ins:option ins:key="y" text="ins:option"/>
 				<ins:option ins:key="z" text="ins:option"/>
-			</int:ComboBox>
-			<int:Checkbox ins:key="Checkbox" lyt:title="Checkbox" status="1" title="@title"/>
-			<int:PushButton ins:key="PushButton" lyt:title="PushButton" title="@title"/>
+			</wdg:ComboBox>
+			<wdg:Checkbox ins:key="Checkbox" lyt:title="Checkbox" status="1" title="@title"/>
+			<wdg:PushButton ins:key="PushButton" lyt:title="PushButton" title="@title"/>
 		</lyt:Tabs>
-	</int:Interface>
+	</wdg:Interface>
 </isl:application>

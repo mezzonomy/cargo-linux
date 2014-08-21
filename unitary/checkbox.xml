@@ -15,7 +15,7 @@ application(
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:lyt="http://www.mezzonomy.com/layout"
-	xmlns:int="http://www.mezzonomy.com/interface"
+	xmlns:wdg="http://www.mezzonomy.com/widget"
 	xmlns:on="http://www.mezzonomy.com/events"
 	xmlns:dis="http://www.mezzonomy.com/distant">
 	<isl:locale isl:lang="fr"/>
@@ -23,20 +23,20 @@ application(
 		<Checkbox>
 			<html:body lang="en" title="Checkbox">
 				<html:h1>Checkbox unitary test</html:h1>
-				<html:P>The <int:Checkbox/> widget provides 
+				<html:P>The <wdg:Checkbox/> widget provides 
 				a checkbox (@status) with a text label (@title).
 				</html:P>
 				<html:P>
-					A <int:Checkbox/> is an option button that can be 
+					A <wdg:Checkbox/> is an option button that can be 
 					switched <html:I>on</html:I> (@status="1") or 
 					<html:I>off</html:I> (@status="0"). 
 					Checkboxes are typically used to represent features in 
 					an application that can be enabled or disabled without 
 					affecting others. 
 				</html:P>
-				<isl:expand select="/*/int:Interface/*/int:Checkbox[2]"/>
+				<isl:expand select="/*/wdg:Interface/*/wdg:Checkbox[2]"/>
 				<html:P>
-					The <int:Checkbox/> widget accepts <on:statusChanged/> 
+					The <wdg:Checkbox/> widget accepts <on:statusChanged/> 
 					events.
 				</html:P>
 				<isl:xmlns/>
@@ -47,12 +47,12 @@ application(
 		<xsl:import href="unitary/unitary.xsl"/>
 	</xsl:stylesheet>
 	<isl:menus dis:href="cargo/Menus.xml"/>
-	<int:Interface>
+	<wdg:Interface>
 		<lyt:Vertical lyt:position="central">
-			<int:Checkbox status="1" title="Achilles"/>
-			<int:Checkbox status="0" title="Ulysses"/>
-			<int:Checkbox status="?" title="Menelaus"/>
-			<int:Checkbox status="0" title="Agamemnon"/>
+			<wdg:Checkbox status="1" title="Achilles"/>
+			<wdg:Checkbox status="0" title="Ulysses"/>
+			<wdg:Checkbox status="?" title="Menelaus"/>
+			<wdg:Checkbox status="0" title="Agamemnon"/>
 		</lyt:Vertical>
-	</int:Interface>
+	</wdg:Interface>
 </isl:application>

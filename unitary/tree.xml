@@ -17,7 +17,7 @@ application(
 	xmlns:en="http://www.mezzonomy.com/language/english"
 	xmlns:fr="http://www.mezzonomy.com/language/french"
 	xmlns:lyt="http://www.mezzonomy.com/layout"
-	xmlns:int="http://www.mezzonomy.com/interface"
+	xmlns:wdg="http://www.mezzonomy.com/widget"
 	xmlns:on="http://www.mezzonomy.com/events"
 	xmlns:ins="http://www.mezzonomy.com/insiders"
 	xmlns:dis="http://www.mezzonomy.com/distant">
@@ -26,7 +26,7 @@ application(
 		<TreeWidget en:__Template="Tree view" fr:__Template="Arbre de navigation">
 			<html:body lang="en" title="__Template">
 				<html:h1>TreeWidget unitary test</html:h1>
-				<html:P>The <int:TreeWidget/> widget allows to 
+				<html:P>The <wdg:TreeWidget/> widget allows to 
 				create tree navigation widget, helpful for preferences
 				or help.
 				</html:P>
@@ -38,26 +38,26 @@ application(
 		<xsl:import href="unitary/unitary.xsl"/>
 	</xsl:stylesheet>
 	<isl:menus dis:href="cargo/Menus.xml"/>
-	<int:Interface>
-		<int:TreeWidget 
+	<wdg:Interface>
+		<wdg:TreeWidget 
 			lyt:position="central"
 			columns         = "3" 
 			headers         = "Init Value|min|max"
 			>
-			<int:TreeWidgetItem state="expanded" text="50">
-				<int:TreeWidgetItem state="expanded" text="50">
-					<int:TreeWidgetItem	icon="isl.ico" text="50">
-					</int:TreeWidgetItem>
-				</int:TreeWidgetItem>
-				<int:TreeWidgetItem state="closed" text="50">
-				</int:TreeWidgetItem>
-			</int:TreeWidgetItem>
-			<int:TreeWidgetItem state="closed" text="50">
-				<int:TreeWidgetItem text="50">
-				</int:TreeWidgetItem>
-				</int:TreeWidgetItem>
-				<int:TreeWidgetItem text="50">
-			</int:TreeWidgetItem>
-		</int:TreeWidget>
-	</int:Interface>
+			<wdg:TreeWidgetItem state="expanded" text="50">
+				<wdg:TreeWidgetItem state="expanded" text="50">
+					<wdg:TreeWidgetItem	icon="isl.ico" text="50">
+					</wdg:TreeWidgetItem>
+				</wdg:TreeWidgetItem>
+				<wdg:TreeWidgetItem state="closed" text="50">
+				</wdg:TreeWidgetItem>
+			</wdg:TreeWidgetItem>
+			<wdg:TreeWidgetItem state="closed" text="50">
+				<wdg:TreeWidgetItem text="50">
+				</wdg:TreeWidgetItem>
+				</wdg:TreeWidgetItem>
+				<wdg:TreeWidgetItem text="50">
+			</wdg:TreeWidgetItem>
+		</wdg:TreeWidget>
+	</wdg:Interface>
 </isl:application>
