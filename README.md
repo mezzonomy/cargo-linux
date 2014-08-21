@@ -11,6 +11,13 @@ Linux version of cargo software:
 
 Hit F1 to access online help.
 
+Licensing
+-----------------
+This software comes with full use license but temporary licence for authoring with limitations.
+
+To get a full authoring licence, please contact mezzonomy@orange.fr
+
+
 Integration tests
 -----------------
 
