@@ -14,6 +14,8 @@ application(
 	xmlns:isl="http://www.mezzonomy.com/interface-stylesheet-language"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:en="http://www.mezzonomy.com/language/english"
+	xmlns:fr="http://www.mezzonomy.com/language/french"
 	xmlns:lyt="http://www.mezzonomy.com/layout"
 	xmlns:wdg="http://www.mezzonomy.com/widget"
 	xmlns:on="http://www.mezzonomy.com/events"

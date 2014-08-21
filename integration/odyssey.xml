@@ -18,7 +18,7 @@ application(
 	xmlns:en="http://www.mezzonomy.com/language/english"
 	xmlns:fr="http://www.mezzonomy.com/language/french"
 	xmlns:lyt="http://www.mezzonomy.com/layout"
-	xmlns:int="http://www.mezzonomy.com/widget"
+	xmlns:wdg="http://www.mezzonomy.com/widget"
 	xmlns:on="http://www.mezzonomy.com/events"
 	xmlns:ins="http://www.mezzonomy.com/insiders"
 	xmlns:dis="http://www.mezzonomy.com/distant"

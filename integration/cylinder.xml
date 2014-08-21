@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- 
+import basic
+widgets(basic)
+application( 
+	name        = """integration""",
+	version     = """1.2""", 
+	author      = """Pierre Gradit""",
+	description = """Basic library integration test""",
+	XYsplash    = (150,20),
+	)
+-->
+<isl:application
+	xmlns:cyl      = "http://en.wikipedia.org/wiki/Cylinder_%28geometry%29"
+    xmlns:quantity = "http://www.mezzonomy.com/quantities"
+	xmlns:isl      = "http://www.mezzonomy.com/interface-stylesheet-language"
+	xmlns:xsl      = "http://www.w3.org/1999/XSL/Transform"
+	xmlns:html     = "http://www.w3.org/1999/xhtml"
+    xmlns:css      = "http://www.w3.org/Style/CSS"
+	xmlns:en       = "http://www.mezzonomy.com/language/english"
+	xmlns:fr       = "http://www.mezzonomy.com/language/french"
+	xmlns:int      = "http://www.mezzonomy.com/widget"
+	xmlns:lyt      = "http://www.mezzonomy.com/layout"
+	xmlns:on       = "http://www.mezzonomy.com/events"
+	xmlns:ins      = "http://www.mezzonomy.com/insiders"
+	xmlns:dis      = "http://www.mezzonomy.com/distant"
+    xmlns:ext      = "http://www.mezzonomy.com/extensions"
+	>
+	<isl:locale isl:lang="fr"/>
+	<isl:units dis:href="cargo/Units.xml"/>
+	<isl:menus dis:href="cargo/Menus.xml"/>
+	<isl:help isl:help-activated="0" isl:help-path="Cylinder">
+		<Cylinder>
+			<html:body lang="en">
+				<html:h1>
+					Cylinder integration test
+				</html:h1>
+				<html:P align="justify">
+					This test provides minimalist model and display
+					using the elements tools. 
+				</html:P>
+				<isl:xmlns/>
+			</html:body>
+		</Cylinder>
+		<General dis:href="doc/general.xml"/>
+	</isl:help>
+	<xsl:stylesheet version="1.0">
+		<xsl:import href="cargo/basic.xsl"/>
+		<xsl:template match="cyl:basic">
+			<lyt:Form lyt:position="central">
+				<xsl:apply-templates/>
+			</lyt:Form>				
+		</xsl:template>
+	</xsl:stylesheet>
+	<cyl:basic>
+		<quantity:length 
+			isl:key="radius"  en:radius="Radius" fr:radius="Rayon"
+			isl:val="30.0"/>
+		<quantity:length 
+			isl:key="height"  en:radius="Height" fr:radius="Hauteur"
+			isl:val="30.0"/>
+		<quantity:surface 
+			isl:key="surface" en:radius="Surface" fr:radius="Surface"
+			isl:val="python:math.pi*radius**2"/>
+		<quantity:volume 
+			isl:key="volume"  en:radius="Volume" fr:radius="Volume"
+			isl:val="python:surface*height"/>
+	</cyl:basic>
+</isl:application>
