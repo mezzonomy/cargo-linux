@@ -54,16 +54,16 @@ application(
 	</xsl:stylesheet>
 	<cyl:basic>
 		<quantity:length 
-			isl:key="radius"  en:radius="Radius" fr:radius="Rayon"
+			isl:key="radius"  en:key="Radius" fr:key="Rayon"
 			isl:val="30.0"/>
 		<quantity:length 
-			isl:key="height"  en:radius="Height" fr:radius="Hauteur"
+			isl:key="height"  en:key="Height" fr:key="Hauteur"
 			isl:val="30.0"/>
 		<quantity:surface 
-			isl:key="surface" en:radius="Surface" fr:radius="Surface"
+			isl:key="surface" en:key="Surface" fr:key="Surface"
 			isl:val="python:math.pi*radius**2"/>
 		<quantity:volume 
-			isl:key="volume"  en:radius="Volume" fr:radius="Volume"
+			isl:key="volume"  en:key="Volume" fr:key="Volume"
 			isl:val="python:surface*height"/>
 	</cyl:basic>
 </isl:application>
