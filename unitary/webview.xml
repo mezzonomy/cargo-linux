@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- 
+import basic
+widgets(basic)
+application( 
+	name        = """unitary""",
+	version     = """1.2""", 
+	author      = """Pierre Gradit""" + __mezzonomy__,
+	description = """Basic library unitary test""",
+	XYsplash    = (150,20),
+	)
+-->
+<isl:application
+	xmlns:isl="http://www.mezzonomy.com/interface-stylesheet-language"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:en="http://www.mezzonomy.com/language/english"
+	xmlns:fr="http://www.mezzonomy.com/language/french"
+	xmlns:lyt="http://www.mezzonomy.com/layout"
+	xmlns:int="http://www.mezzonomy.com/widget"
+	xmlns:on="http://www.mezzonomy.com/events"
+	xmlns:ins="http://www.mezzonomy.com/insiders"
+	xmlns:dis="http://www.mezzonomy.com/distant">
+	<isl:locale isl:lang="fr"/>
+	<isl:help isl:help-activated="0" isl:help-path="WebView">	
+		<WebView en:WebView="WebView" fr:WebView="WebView ">
+			<html:body lang="en">
+				<html:h1>Test pour page web compexe</html:h1>
+				<html:P>We use paypal interface as a unitary test. You can donate
+				1€ by using this application, but do it on a voluntary basis :-)
+				</html:P>
+				<isl:xmlns/>
+			</html:body>
+		</WebView>
+	</isl:help>
+	<xsl:stylesheet on:xmlns="used" version="1.0">
+		<xsl:import href="unitary/unitary.xsl"/>
+	</xsl:stylesheet>
+	<isl:menus dis:href="cargo/Menus.xml"/>
+	<int:Interface>
+		<int:WebView lyt:position="central">
+			<html:form 
+				action="https://www.paypal.com/cgi-bin/webscr" 
+				method="post" 
+				target="_top">
+				<html:input 
+					type="hidden" 
+					name="cmd" 
+					value="_s-xclick"
+				/>
+				<html:input 
+					type="hidden" 
+					name="hosted_button_id" 
+					value="HKQ94F2UTVANG"
+				/>
+				<html:table>
+					<html:tr>
+						<html:td>
+							<html:input 
+								type="hidden" 
+								name="on0" 
+								value="Licence Cargo"
+								/>Licence Cargo</html:td>
+					</html:tr>
+					<html:tr>
+						<html:td>
+							<html:select name="os0">
+								<html:option 
+									value="Test"
+									>Test €1,00 EUR</html:option>
+							</html:select> 
+						</html:td>
+					</html:tr>
+				</html:table>
+				<html:input 
+					type="hidden" 
+					name="currency_code" 
+					value="EUR"
+				/>
+				<html:input 
+					type="image" 
+					src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !"
+				/>
+				<html:img 
+					alt=""
+					border="0" 
+					src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" 
+					width="1" 
+					height="1"
+				/>
+			</html:form>
+		</int:WebView>
+	</int:Interface>
+</isl:application>
