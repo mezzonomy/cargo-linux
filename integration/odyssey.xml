@@ -24,9 +24,9 @@ application(
 	xmlns:dis="http://www.mezzonomy.com/distant"
     xmlns:ext= "http://www.mezzonomy.com/extensions"
 	>
-	<isl:locale isl:lang="fr"/>
+	<isl:locale dis:href="cargo/Locale.xml"/>
 	<isl:menus dis:href="cargo/Menus.xml"/>
-	<isl:help isl:help-activated="0" isl:help-path="Odyssey">
+	<isl:help isl:help-path="Odyssey">
 		<Odyssey>
 			<html:body lang="en">
 				<html:h1>
