@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--import basic;widgets(basic)
+application( 
+	name        = """integration""",
+	version     = """1.2""", 
+	author      = """Pierre Gradit""",
+	description = """Integration of python function in model""",
+	XYsplash    = (150,20),
+	)
+ # - - - - - - - - - - - - - - - - - 
+import math
+
+def cylinder(radius, height):
+	surface = math.pi*radius**2
+	volume  = surface*height
+	return volume
+
+-->
+<isl:application
+	xmlns:cyl      = "http://en.wikipedia.org/wiki/Cylinder_%28geometry%29"
+    xmlns:quantity = "http://www.mezzonomy.com/quantities"
+	xmlns:isl      = "http://www.mezzonomy.com/interface-stylesheet-language"
+	xmlns:xsl      = "http://www.w3.org/1999/XSL/Transform"
+	xmlns:html     = "http://www.w3.org/1999/xhtml"
+    xmlns:css      = "http://www.w3.org/Style/CSS"
+	xmlns:en       = "http://www.mezzonomy.com/language/english"
+	xmlns:fr       = "http://www.mezzonomy.com/language/french"
+	xmlns:wdg      = "http://www.mezzonomy.com/widget"
+	xmlns:lyt      = "http://www.mezzonomy.com/layout"
+	xmlns:on       = "http://www.mezzonomy.com/events"
+	xmlns:ins      = "http://www.mezzonomy.com/insiders"
+	xmlns:dis      = "http://www.mezzonomy.com/distant"
+    xmlns:ext      = "http://www.mezzonomy.com/extensions"
+	>
+	<isl:locale dis:href="cargo/Locale.xml"/>
+	<isl:units  dis:href="cargo/Units.xml"/>
+	<isl:menus  dis:href="cargo/Menus.xml"/>
+	<isl:help isl:help-path="Cylinder">
+		<Cylinder>
+			<html:body lang="en">
+				<html:h1>
+					Cylinder integration test
+				</html:h1>
+				<html:P align="justify">
+					This test provides minimalist model and display
+					using the elements tools. 
+				</html:P>
+				<html:P align="center">
+					<html:img src="doc/elements.png"/>
+				</html:P>
+				<isl:xmlns/>
+			</html:body>
+		</Cylinder>
+		<General dis:href="doc/general.xml"/>
+	</isl:help>
+	<xsl:stylesheet version="1.0">
+		<xsl:import href="cargo/basic.xsl"/>
+		<xsl:template match="cyl:basic">
+			<lyt:Form lyt:position="central">
+				<xsl:apply-templates/>
+			</lyt:Form>				
+		</xsl:template>
+	</xsl:stylesheet>
+	<cyl:basic>
+		<quantity:length 
+			isl:key="radius"  en:key="Radius" fr:key="Rayon"
+			isl:val="30.0"/>
+		<quantity:length 
+			isl:key="height"  en:key="Height" fr:key="Hauteur"
+			isl:val="30.0"/>
+		<isl:python call="cylinder" en:call="Cylinder" fr:call="Cylindre"> 
+			<quantity:volume 
+				isl:key="volume"  en:key="Volume" fr:key="Volume"
+				isl:val="NaN"/>
+		</isl:python>
+	</cyl:basic>
+</isl:application>
